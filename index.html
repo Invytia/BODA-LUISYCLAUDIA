@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boda de Luis Armando y Claudia - 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{--bg-color:#F6F1E8;--olive-green:#5A6B73;--dark-green:#2B3A42;--gold:#B08D57;--cream:#F8F4EC;--white:#fff;--text-color:#38362D;
+--font-title:'Playfair Display',serif;--font-script:'Great Vibes',cursive;--font-body:'Lora',serif;--font-sans:'Montserrat',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background-color:#e3ded4;color:var(--text-color);font-family:var(--font-body);overflow-x:hidden;background-image:url('https://www.transparenttextures.com/patterns/cream-paper.png')}
+@keyframes shimmerText{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes pulseGlow{0%{text-shadow:0 0 5px rgba(176,141,87,.3);transform:scale(1)}50%{text-shadow:0 0 20px rgba(176,141,87,.8);transform:scale(1.05)}100%{text-shadow:0 0 5px rgba(176,141,87,.3);transform:scale(1)}}
+@keyframes floatEffect{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes expandLine{0%{width:0;opacity:0}100%{width:40px;opacity:1}}
+@keyframes sparkleAnim{0%,100%{opacity:0;transform:scale(0) rotate(0)}50%{opacity:1;transform:scale(1) rotate(180deg)}}
+@keyframes buttonShine{0%{left:-100%}20%,100%{left:200%}}
+.shimmer-text{background:linear-gradient(90deg,var(--dark-green) 0%,var(--gold) 30%,#fff 50%,var(--gold) 70%,var(--dark-green) 100%);background-size:200% auto;color:transparent;-webkit-background-clip:text;background-clip:text;animation:shimmerText 4s linear infinite}
+.glowing-icon{animation:pulseGlow 2.5s infinite ease-in-out;color:var(--gold)}
+.sparkle-container{position:absolute;inset:0;pointer-events:none;z-index:0}
+.sparkle{position:absolute;color:var(--gold);animation:sparkleAnim 3s infinite ease-in-out}
+.sparkle:nth-child(1){top:10%;left:15%;font-size:.8rem}.sparkle:nth-child(2){top:30%;right:10%;animation-delay:1.5s;font-size:1.5rem}
+.sparkle:nth-child(3){bottom:20%;left:20%;animation-delay:.7s;font-size:1rem}.sparkle:nth-child(4){bottom:10%;right:15%;animation-delay:2.2s;font-size:.9rem}
+.fade-in{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.25,.46,.45,.94),transform .8s cubic-bezier(.25,.46,.45,.94)}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.scale-in{opacity:0;transform:scale(.9);transition:all .8s cubic-bezier(.25,.46,.45,.94)}
+.scale-in.visible{opacity:1;transform:scale(1)}
+
+/* Sobre */
+#envelope-screen{position:fixed;inset:0;height:100vh;background-color:var(--dark-green);background-image:url('https://www.transparenttextures.com/patterns/stardust.png');z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 1s ease,visibility 1s ease}
+.envelope-wrapper{position:relative;width:340px;max-width:90vw;height:230px;z-index:2;cursor:pointer;perspective:1000px;transition:transform .3s;animation:floatEffect 4s infinite ease-in-out}
+.envelope-wrapper:hover{transform:scale(1.05)}
+.envelope-body{position:absolute;inset:0;background:#fff;border-radius:4px;box-shadow:0 15px 40px rgba(0,0,0,.5),0 0 30px rgba(176,141,87,.3);overflow:hidden}
+.envelope-front{position:absolute;inset:0;z-index:3;border-left:170px solid #f9f9f9;border-right:170px solid #f9f9f9;border-bottom:120px solid #f0f0f0;border-top:110px solid transparent;pointer-events:none}
+.envelope-flap{position:absolute;top:0;left:0;width:0;height:0;border-left:170px solid transparent;border-right:170px solid transparent;border-top:130px solid #fff;transform-origin:top;transition:transform .8s cubic-bezier(.4,0,.2,1);z-index:4;filter:drop-shadow(0 5px 5px rgba(0,0,0,.15))}
+.seal{position:absolute;top:122px;left:50%;margin:-28px 0 0 -28px;width:56px;height:56px;pointer-events:none;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-title);font-size:1.3rem;z-index:5;transition:opacity .3s;box-shadow:0 0 15px rgba(176,141,87,.8)}
+.envelope-wrapper.open .envelope-flap{transform:rotateX(180deg);z-index:1;filter:none}
+.envelope-wrapper.open .seal{opacity:0;animation:none}
+.envelope-text{position:relative;z-index:2;color:var(--gold);font-family:var(--font-sans);font-size:.9rem;letter-spacing:3px;margin-top:40px;text-transform:uppercase;animation:pulseGlow 2s infinite alternate}
+
+#audio-btn{position:fixed;bottom:25px;right:25px;background:var(--gold);color:#fff;border:none;border-radius:50%;width:55px;height:55px;font-size:1.2rem;cursor:pointer;z-index:9000;box-shadow:0 0 20px rgba(176,141,87,.6);transition:transform .3s,background-color .3s;display:none;align-items:center;justify-content:center}
+#audio-btn:hover{transform:scale(1.1);background:var(--olive-green)}
+
+/* Tríptico */
+#invitation-content{display:flex;justify-content:center;padding:20px 10px;visibility:hidden;opacity:0;transition:opacity 1s ease}
+.invitation-container{display:grid;grid-template-columns:repeat(3,1fr);max-width:1200px;width:100%;box-shadow:0 20px 50px rgba(0,0,0,.3);border-radius:8px;overflow:hidden}
+.column{display:flex;flex-direction:column;align-items:center;padding:50px 20px;text-align:center;position:relative}
+.col-light{background-color:var(--bg-color);background-image:url('https://www.transparenttextures.com/patterns/cream-paper.png')}
+.col-dark{background-color:var(--dark-green);background-image:url('https://www.transparenttextures.com/patterns/stardust.png');color:var(--cream);box-shadow:inset 0 0 30px rgba(0,0,0,.5);z-index:2}
+h1,h2,h3{font-family:var(--font-title);font-weight:400}
+.divider{display:flex;align-items:center;justify-content:center;margin:25px 0;color:var(--gold)}
+.divider::before,.divider::after{content:"";height:1px;background:var(--gold);margin:0 15px;width:0}
+.divider.visible::before,.divider.visible::after{animation:expandLine 1s ease forwards}
+.btn{position:relative;display:inline-block;background:var(--olive-green);color:var(--cream);padding:15px 25px;text-decoration:none;font-family:var(--font-sans);font-size:.85rem;letter-spacing:1px;border-radius:6px;margin-top:15px;border:1px solid rgba(255,255,255,.1);cursor:pointer;overflow:hidden;transition:all .3s;box-shadow:0 4px 15px rgba(0,0,0,.2)}
+.btn::before{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(to right,rgba(255,255,255,0),rgba(255,255,255,.3),rgba(255,255,255,0));transform:skewX(-25deg);animation:buttonShine 3s infinite}
+.btn:hover{background:var(--gold);transform:translateY(-3px);box-shadow:0 8px 25px rgba(176,141,87,.4);color:#fff}
+.glass-panel{width:100%;padding:35px 20px;background:rgba(255,255,255,.45);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.9);border-radius:16px;margin-top:15px;box-shadow:0 15px 35px rgba(176,141,87,.15),inset 0 0 15px rgba(255,255,255,.5)}
+.label-sm{font-family:var(--font-sans);font-size:.85rem;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:5px;font-weight:600}
+.sec-title{font-size:2.3rem;letter-spacing:2px}
+
+/* Columna 1 */
+.invite-text{font-family:var(--font-sans);font-size:.9rem;letter-spacing:2px;margin-top:25px;font-weight:500}
+.invite-boda{font-family:var(--font-script);font-size:4.2rem;margin-bottom:10px;color:var(--olive-green);line-height:1.1}
+.names-title{font-size:2.1rem;line-height:1.3;margin:20px 0;position:relative;z-index:1}
+.names-title span{font-family:var(--font-script);font-size:3.2rem;display:block;margin:10px 0;color:var(--gold);text-transform:lowercase}
+.intro-text{font-family:var(--font-sans);font-size:.85rem;letter-spacing:2px;text-transform:uppercase;margin:15px 0;color:var(--dark-green);font-weight:600}
+.script-names{font-family:var(--font-script);font-size:2rem;line-height:1.25;margin-bottom:25px;color:var(--dark-green)}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;margin:10px 0 20px}
+.gallery img{width:100%;border-radius:10px;border:4px solid #fff;box-shadow:0 8px 20px rgba(0,0,0,.15);object-fit:cover;aspect-ratio:3/4}
+.gallery img:first-child{grid-column:1/3;aspect-ratio:4/3}
+.save-date-title{font-family:var(--font-sans);font-size:.9rem;letter-spacing:2px;margin:25px 0 5px;color:var(--gold);font-weight:600}
+.save-date-date{font-family:var(--font-title);font-size:3.2rem;margin-bottom:5px}
+.calendar-wrapper{width:100%;max-width:320px;margin:25px auto;font-family:var(--font-sans);font-size:.9rem}
+.calendar-month{text-transform:uppercase;letter-spacing:2px;margin-bottom:15px;font-weight:600;color:var(--olive-green)}
+.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.calendar-header{font-weight:600;color:var(--gold);margin-bottom:5px;font-size:.8rem}
+.calendar-day{padding:8px 0}
+.calendar-day.highlight{background:var(--gold);color:#fff;border-radius:50%;font-weight:bold;box-shadow:0 0 15px rgba(176,141,87,.8);animation:pulseGlow 2s infinite alternate}
+#countdown-timer{font-family:var(--font-sans);font-size:.75rem;letter-spacing:1px;color:var(--dark-green);font-weight:700;margin:35px 0;padding:20px 10px;width:100%;background:linear-gradient(to right,transparent,rgba(176,141,87,.1),transparent);border-top:1px solid rgba(176,141,87,.5);border-bottom:1px solid rgba(176,141,87,.5);display:flex;justify-content:space-between;white-space:nowrap;align-items:center}
+#countdown-timer b{font-size:1.3rem;color:var(--olive-green);margin-right:3px}
+
+/* Columna 2 */
+.col-dark h2{color:var(--gold)}
+.timeline-section{width:100%;padding:10px;position:relative;margin-top:20px}
+.timeline-section::before{content:'';position:absolute;left:32.5px;top:20px;bottom:20px;width:2px;background:rgba(176,141,87,.4)}
+.timeline-item{display:flex;align-items:flex-start;margin-bottom:40px;position:relative;z-index:1;transition:transform .3s}
+.timeline-item:hover{transform:translateX(10px)}
+.timeline-icon{width:45px;height:45px;flex-shrink:0;background:var(--gold);color:var(--dark-green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-right:20px;box-shadow:0 0 0 5px var(--dark-green),0 0 15px rgba(176,141,87,.5)}
+.timeline-content{text-align:left;padding-top:5px}
+.timeline-time{font-family:var(--font-sans);font-weight:600;font-size:1.3rem;color:var(--gold);letter-spacing:1px}
+.timeline-event{font-size:1.1rem;color:var(--cream);margin-top:5px}
+.dark-card{margin-top:40px;background:rgba(0,0,0,.2);padding:35px 20px;border-radius:12px;border:1px solid rgba(176,141,87,.3);width:100%}
+.dark-card p.txt{font-size:1rem;line-height:1.6;color:var(--cream)}
+.colors{display:flex;justify-content:center;gap:15px;margin-bottom:20px}
+.color-swatch{width:40px;height:40px;border-radius:50%;border:2px solid rgba(255,255,255,.8);box-shadow:0 4px 10px rgba(0,0,0,.5);transition:transform .3s}
+.color-swatch:hover{transform:scale(1.2)}
+.hotel-list{list-style:none;margin-top:10px}
+.hotel-list li{padding:8px 0;border-bottom:1px solid rgba(176,141,87,.25);font-size:1rem}
+.hotel-list li:last-child{border:none}
+
+/* Columna 3 */
+.venue-name{font-family:var(--font-script);font-size:2.8rem;color:var(--olive-green);margin-bottom:10px;line-height:1.1}
+.venue-sub{font-family:var(--font-sans);font-size:.85rem;letter-spacing:1px;line-height:1.5;color:var(--dark-green);margin-bottom:5px}
+.map-container{width:100%;height:260px;margin:20px 0 5px;border-radius:12px;overflow:hidden;border:4px solid #fff;box-shadow:0 10px 25px rgba(0,0,0,.15)}
+.map-container iframe{width:100%;height:100%;border:none}
+.form-group{margin-bottom:20px;text-align:left;width:100%}
+.form-group label{display:block;font-family:var(--font-sans);font-size:.85rem;color:var(--dark-green);margin-bottom:8px;letter-spacing:1px;font-weight:600}
+.form-group input[type=text],.form-group select,.form-group textarea{width:100%;padding:15px;background:rgba(255,255,255,.9);border:2px solid transparent;border-radius:8px;font-family:var(--font-body);font-size:1rem;color:var(--text-color);outline:none;transition:all .3s;box-shadow:inset 0 2px 5px rgba(0,0,0,.05)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);box-shadow:0 0 15px rgba(176,141,87,.3);background:#fff}
+.radio-container{display:flex;gap:20px}
+.radio-label{display:flex;align-items:center;gap:5px;cursor:pointer;font-size:.95rem;font-weight:500}
+.dark-block{background:var(--dark-green);color:var(--cream);width:100%;padding:50px 20px;margin-top:50px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.15)}
+@media(max-width:992px){.invitation-container{grid-template-columns:1fr;border-radius:0;box-shadow:none}.col-dark{padding:60px 20px}}
+</style>
+</head>
+<body>
+
+<audio id="bg-audio" loop><source src="assets/song.mp3" type="audio/mpeg"></audio>
+
+<div id="envelope-screen">
+  <div class="envelope-wrapper" onclick="openInvitation()">
+    <div class="envelope-front"></div>
+    <div class="envelope-flap"></div>
+    <div class="seal glowing-icon">L&amp;C</div>
+    <div class="envelope-body"></div>
+  </div>
+  <div class="envelope-text">Toca para abrir</div>
+</div>
+
+<button id="audio-btn" onclick="toggleAudio()"><i class="fa-solid fa-music" id="audio-icon"></i></button>
+
+<div id="invitation-content">
+<div class="invitation-container">
+
+  <!-- ============ COLUMNA 1 ============ -->
+  <div class="column col-light">
+    <div class="sparkle-container">
+      <i class="fa-solid fa-star sparkle"></i><i class="fa-solid fa-star sparkle"></i><i class="fa-solid fa-star sparkle"></i><i class="fa-solid fa-star sparkle"></i>
+    </div>
+
+    <p class="invite-text fade-in">TENEMOS EL HONOR DE INVITARTE A NUESTRA</p>
+    <div class="invite-boda fade-in scale-in">Boda Religiosa y Civil</div>
+
+    <h1 class="names-title fade-in shimmer-text">
+      LUIS ARMANDO<br>SANTES VELAZQUEZ
+      <span>&amp;</span>
+      CLAUDIA<br>MONTERO VAZQUEZ
+    </h1>
+
+    <div class="divider fade-in"><i class="fa-solid fa-heart glowing-icon" style="font-size:.8rem"></i></div>
+
+    <!-- FOTOS: sube foto1.jpg, foto2.jpg y foto3.jpg a /assets (si no existen, se ocultan) -->
+    <div class="gallery fade-in">
+      <img src="assets/foto1.jpg" alt="Luis y Claudia" onerror="this.style.display='none'">
+      <img src="assets/foto2.jpg" alt="Luis y Claudia" onerror="this.style.display='none'">
+      <img src="assets/foto3.jpg" alt="Luis y Claudia" onerror="this.style.display='none'">
+    </div>
+
+    <p class="intro-text fade-in">Con la bendición de nuestros padres</p>
+    <div class="fade-in" style="margin:10px 0 20px">
+      <p class="label-sm">Padres de la novia</p>
+      <p class="script-names">Rosa Vazquez Muñiz<br>Alberto Montero De Leo</p>
+      <p class="label-sm">Padres del novio</p>
+      <p class="script-names">Juana Velazquez Pantoja<br>Armando Santes Mendez</p>
+    </div>
+
+    <p class="intro-text fade-in" style="margin-top:20px">Nuestros padrinos</p>
+    <div class="fade-in" style="margin-bottom:30px">
+      <p class="script-names" style="margin-bottom:0">Leopoldo Velazquez Pantoja<br>Teresa Garcia Pantoja</p>
+    </div>
+
+    <div class="fade-in">
+      <p class="save-date-title">RESERVA LA FECHA</p>
+      <div class="save-date-date shimmer-text">20 &bull; 12 &bull; 2026</div>
+      <p class="save-date-title" style="color:var(--dark-green)">DOMINGO</p>
+    </div>
+
+    <!-- Calendario Diciembre 2026 (1 de dic = martes) -->
+    <div class="calendar-wrapper fade-in">
+      <div class="calendar-month">Diciembre 2026</div>
+      <div class="calendar-grid calendar-header"><div>DOM</div><div>LUN</div><div>MAR</div><div>MIÉ</div><div>JUE</div><div>VIE</div><div>SÁB</div></div>
+      <div class="calendar-grid" id="calendar-days"></div>
+    </div>
+
+    <div id="countdown-timer" class="fade-in">
+      <span><b id="dias">00</b> DÍAS</span>
+      <span><b id="horas">00</b> HRS</span>
+      <span><b id="minutos">00</b> MIN</span>
+      <span><b id="segundos">00</b> SEG</span>
+    </div>
+
+    <button onclick="downloadICS()" class="btn fade-in" style="width:85%"><i class="fa-regular fa-calendar-plus"></i> AGREGAR AL CALENDARIO</button>
+  </div>
+
+  <!-- ============ COLUMNA 2 ============ -->
+  <div class="column col-dark">
+    <h2 class="fade-in" style="font-size:2.5rem;margin-bottom:5px;letter-spacing:3px">ITINERARIO</h2>
+    <div class="divider fade-in"><i class="fa-solid fa-clock glowing-icon" style="font-size:.9rem"></i></div>
+
+    <div class="timeline-section">
+      <div class="timeline-item fade-in">
+        <div class="timeline-icon"><i class="fa-solid fa-church"></i></div>
+        <div class="timeline-content"><div class="timeline-time">2:00 PM</div><div class="timeline-event">Evento Religioso</div></div>
+      </div>
+      <div class="timeline-item fade-in">
+        <div class="timeline-icon"><i class="fa-solid fa-file-signature"></i></div>
+        <div class="timeline-content"><div class="timeline-time">4:00 PM</div><div class="timeline-event">Ceremonia Civil</div></div>
+      </div>
+    </div>
+
+    <div class="dark-card fade-in scale-in">
+      <p class="label-sm">CÓDIGO DE VESTIMENTA</p>
+      <div class="divider"><i class="fa-solid fa-user-tie glowing-icon" style="font-size:.8rem"></i></div>
+      <p style="font-family:var(--font-title);font-size:2.8rem;margin-bottom:25px;letter-spacing:2px;color:var(--cream)">Formal</p>
+      <div class="colors">
+        <div class="color-swatch" style="background:#FFFFFF"></div>
+        <div class="color-swatch" style="background:#D8C3A5"></div>
+      </div>
+      <p class="txt">Por favor, reservar el color <strong style="color:var(--gold)">blanco</strong> para la novia y el color <strong style="color:var(--gold)">beige</strong> para el novio.</p>
+    </div>
+
+    <div class="dark-card fade-in scale-in">
+      <p class="label-sm">REGALOS</p>
+      <div class="divider"><i class="fa-solid fa-gift glowing-icon" style="font-size:.8rem"></i></div>
+      <p class="txt" style="font-style:italic;font-size:1.1rem">Tu presencia es nuestro mejor regalo.<br><br>Si quieres tener un detalle con nosotros, un sobre nos ayudará a empezar nuestra vida juntos.</p>
+      <i class="fa-solid fa-envelope-open-text glowing-icon" style="font-size:2rem;margin-top:25px"></i>
+    </div>
+
+    <div class="dark-card fade-in scale-in">
+      <p class="label-sm">HOSPEDAJE SUGERIDO</p>
+      <div class="divider"><i class="fa-solid fa-bed glowing-icon" style="font-size:.8rem"></i></div>
+      <p class="txt" style="margin-bottom:5px">Para nuestros invitados foráneos:</p>
+      <ul class="hotel-list">
+        <li>Delta Hotels by Marriott</li>
+        <li>Villa Ancla y Villa Delfín, Antón Lizardo</li>
+        <li>Hotel Amoe Suites &amp; Pool</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ COLUMNA 3 ============ -->
+  <div class="column col-light">
+    <h2 class="sec-title fade-in">UBICACIONES</h2>
+    <div class="divider fade-in"><i class="fa-solid fa-map-location-dot glowing-icon" style="font-size:.9rem"></i></div>
+
+    <!-- CEREMONIA RELIGIOSA -->
+    <p class="label-sm fade-in">Evento Religioso · 2:00 PM</p>
+    <div class="venue-name fade-in scale-in">Parroquia Santos Apóstoles<br>Pedro y Andrés</div>
+    <p class="venue-sub fade-in">Independencia núm. 11, Antón Lizardo,<br>95263 Antón Lizardo, Ver.</p>
+    <div class="map-container fade-in">
+      <iframe id="map-iglesia" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <a id="link-iglesia" target="_blank" rel="noopener" class="btn fade-in" style="width:100%"><i class="fa-solid fa-location-arrow"></i> CÓMO LLEGAR</a>
+
+    <div class="divider fade-in" style="margin-top:45px"><i class="fa-solid fa-ring glowing-icon" style="font-size:.9rem"></i></div>
+
+    <!-- CIVIL + RECEPCIÓN -->
+    <p class="label-sm fade-in">Ceremonia Civil y Recepción · 4:00 PM</p>
+    <div class="venue-name fade-in scale-in">Delta Hotels<br>by Marriott</div>
+    <p class="venue-sub fade-in">Riviera Veracruz, Carretera Federal Boca del Río–Antón Lizardo 1055,<br>95253 Buena Vista, Ver.</p>
+    <div class="map-container fade-in">
+      <iframe id="map-hotel" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <a id="link-hotel" target="_blank" rel="noopener" class="btn fade-in" style="width:100%"><i class="fa-solid fa-location-arrow"></i> CÓMO LLEGAR</a>
+
+    <!-- ASISTENCIA -->
+    <div class="fade-in" style="width:100%;margin-top:60px">
+      <h2 class="sec-title" style="font-size:2.2rem">ASISTENCIA</h2>
+      <div class="divider"><i class="fa-solid fa-envelope-open-text glowing-icon" style="font-size:.8rem"></i></div>
+      <p id="deadline" style="display:none;font-family:var(--font-sans);font-size:.85rem;letter-spacing:1px;color:var(--dark-green);margin-bottom:5px"></p>
+
+      <div class="glass-panel scale-in">
+        <div id="paseSection" style="display:none;text-align:center;margin-bottom:30px;border-bottom:1px solid rgba(176,141,87,.3);padding-bottom:25px">
+          <p style="font-family:var(--font-sans);font-size:.85rem;letter-spacing:3px;color:var(--olive-green);margin-bottom:5px;font-weight:700">PASE DE ENTRADA</p>
+          <h2 id="guestNameDisplay" style="font-size:2.2rem;margin:10px 0;color:var(--dark-green)">Invitado Especial</h2>
+          <p style="font-size:1.15rem">Lugares reservados: <span id="guestPassesDisplay" style="font-weight:bold;color:var(--gold);font-size:1.6rem">2</span></p>
+        </div>
+
+        <form id="rsvpForm">
+          <div id="genericRSVPInputs">
+            <div class="form-group"><label>Nombre(s):</label><input type="text" id="rsvpNombre" placeholder="Ej. Juan"></div>
+            <div class="form-group"><label>Apellido(s):</label><input type="text" id="rsvpApellido" placeholder="Ej. Pérez"></div>
+            <div class="form-group">
+              <label>¿Asistirás?:</label>
+              <select id="rsvpAsistencia">
+                <option value="">Selecciona una opción</option>
+                <option value="¡Sí, ahí estaré!">¡Sí, ahí estaré!</option>
+                <option value="Lamentablemente no podré asistir">Lamentablemente no podré asistir</option>
+              </select>
+            </div>
+          </div>
+          <div id="dynamicGuestList" style="width:100%;text-align:left"></div>
+          <button type="button" onclick="sendRSVP(telNovio,'Luis')" class="btn" style="width:100%;font-size:1rem;font-weight:bold;padding:18px;border-radius:8px"><i class="fa-brands fa-whatsapp"></i> CONFIRMAR CON EL NOVIO</button>
+          <button type="button" onclick="sendRSVP(telNovia,'Claudia')" class="btn" style="width:100%;font-size:1rem;font-weight:bold;padding:18px;border-radius:8px"><i class="fa-brands fa-whatsapp"></i> CONFIRMAR CON LA NOVIA</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- BUENOS DESEOS -->
+    <div class="fade-in" style="width:100%;margin-top:50px">
+      <h2 class="sec-title" style="font-size:2.2rem">BUENOS DESEOS</h2>
+      <div class="divider"><i class="fa-solid fa-pen-fancy glowing-icon" style="font-size:.8rem"></i></div>
+      <div class="glass-panel scale-in" style="margin-top:10px">
+        <form id="wishesForm">
+          <div class="form-group">
+            <label>Escribe un mensaje para los novios:</label>
+            <textarea id="wishesText" rows="4" placeholder="¡Felicidades en esta nueva etapa!"></textarea>
+          </div>
+          <button type="button" onclick="sendWishes(telNovio,'Luis')" class="btn" style="width:100%;background:var(--gold);font-size:1rem;font-weight:bold;padding:18px;border-radius:8px"><i class="fa-brands fa-whatsapp"></i> ENVIAR AL NOVIO</button>
+          <button type="button" onclick="sendWishes(telNovia,'Claudia')" class="btn" style="width:100%;background:var(--gold);font-size:1rem;font-weight:bold;padding:18px;border-radius:8px"><i class="fa-brands fa-whatsapp"></i> ENVIAR A LA NOVIA</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="dark-block fade-in scale-in" style="text-align:center">
+      <h3 class="shimmer-text" style="font-family:var(--font-script);font-size:4.5rem;margin-bottom:15px;background-image:linear-gradient(90deg,var(--gold) 0%,#fff 30%,var(--cream) 50%,#fff 70%,var(--gold) 100%)">¡Gracias!</h3>
+      <p style="font-size:1.15rem;margin-bottom:30px;font-style:italic">Tu presencia hará de este día un momento inolvidable.</p>
+      <div style="font-family:var(--font-sans);letter-spacing:4px;font-size:.95rem;text-transform:uppercase;color:var(--gold);font-weight:600">Luis Armando &amp; Claudia</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<script>
+/* ===== CONFIGURACIÓN (editar aquí) ===== */
+const telNovio = "522291161580";               // WhatsApp del novio (Luis)
+const telNovia = "522291192117";               // WhatsApp de la novia (Claudia)
+const fechaLimite = "";                        // PENDIENTE: ej. "20 de noviembre de 2026" (vacío = se oculta)
+const fechaEvento = new Date("Dec 20, 2026 14:00:00").getTime();
+
+// Ubicaciones (sustituir por el link exacto de Google Maps cuando lo tengamos)
+const ubicaciones = {
+  iglesia: "Parroquia Santos Apóstoles Pedro y Andrés, Independencia 11, Antón Lizardo, 95263 Antón Lizardo, Ver.",
+  hotel: "Delta Hotels by Marriott Riviera Veracruz, Carretera Federal Boca del Río-Antón Lizardo 1055, 95253 Buena Vista, Ver."
+};
+const linksMaps = { iglesia: "", hotel: "" }; // opcional: pegar aquí links exactos (maps.app.goo.gl/...)
+
+/* ===== Sobre y audio ===== */
+const audio = document.getElementById('bg-audio');
+const audioIcon = document.getElementById('audio-icon');
+const audioBtn = document.getElementById('audio-btn');
+let envelopeOpened = false;
+
+function openInvitation() {
+  if (envelopeOpened) return;
+  envelopeOpened = true;
+  const screen = document.getElementById('envelope-screen');
+  const content = document.getElementById('invitation-content');
+  document.querySelector('.envelope-wrapper').classList.add('open');
+  audio.play().then(() => { audioIcon.classList.replace('fa-music', 'fa-pause'); }).catch(e => console.log("Auto-play prevenido", e));
+  setTimeout(() => {
+    screen.style.opacity = '0';
+    content.style.visibility = 'visible';
+    content.style.opacity = '1';
+    audioBtn.style.display = 'flex';
+    setTimeout(() => { screen.style.display = 'none'; }, 1000);
+  }, 800);
+}
+
+function toggleAudio() {
+  if (audio.paused) { audio.play(); audioIcon.classList.replace('fa-music', 'fa-pause'); }
+  else { audio.pause(); audioIcon.classList.replace('fa-pause', 'fa-music'); }
+}
+
+/* ===== Inicialización ===== */
+document.addEventListener("DOMContentLoaded", function () {
+  // Calendario: diciembre 2026 empieza en martes (2 celdas vacías), 31 días, resaltar el 20
+  const cal = document.getElementById('calendar-days');
+  let h = '<div></div><div></div>';
+  for (let d = 1; d <= 31; d++) h += `<div class="calendar-day${d === 20 ? ' highlight' : ''}">${d}</div>`;
+  cal.innerHTML = h;
+
+  // Mapas
+  ['iglesia', 'hotel'].forEach(k => {
+    const q = encodeURIComponent(ubicaciones[k]);
+    document.getElementById('map-' + k).src = `https://www.google.com/maps?q=${q}&output=embed`;
+    document.getElementById('link-' + k).href = linksMaps[k] || `https://www.google.com/maps/search/?api=1&query=${q}`;
+  });
+
+  // Fecha límite
+  if (fechaLimite) {
+    const dl = document.getElementById('deadline');
+    dl.textContent = "Por favor confirma tu asistencia antes del " + fechaLimite;
+    dl.style.display = 'block';
+  }
+
+  // Animaciones de aparición
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in, .divider, .scale-in').forEach(el => observer.observe(el));
+
+  // Invitados dinámicos por URL: ?invitado=Familia Pérez&pases=3&nombres=Juan,Ana,Luis
+  const p = new URLSearchParams(window.location.search);
+  const invitado = p.get('invitado'), pases = p.get('pases'), nombresStr = p.get('nombres');
+
+  if (invitado && pases) {
+    document.getElementById('paseSection').style.display = 'block';
+    document.getElementById('guestNameDisplay').textContent = invitado;
+    document.getElementById('guestPassesDisplay').textContent = pases;
+  }
+
+  if (nombresStr) {
+    const nombres = nombresStr.split(',');
+    let html = `<label style="font-family:var(--font-sans);font-size:.95rem;color:var(--dark-green);margin-bottom:15px;display:block;font-weight:600">Selecciona quiénes asisten:</label>`;
+    nombres.forEach((nombre, i) => {
+      html += `<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:15px;padding-bottom:15px;border-bottom:1px solid rgba(176,141,87,.3)">
+        <span style="font-size:1.05rem;font-weight:500;flex:1;min-width:120px">${nombre.trim()}</span>
+        <div class="radio-container" style="flex-shrink:0">
+          <label class="radio-label"><input type="radio" name="asistencia_${i}" value="Sí"> Sí</label>
+          <label class="radio-label"><input type="radio" name="asistencia_${i}" value="No"> No</label>
+        </div></div>`;
+    });
+    document.getElementById('dynamicGuestList').innerHTML = html;
+    document.getElementById('genericRSVPInputs').style.display = 'none';
+  }
+
+  // Cuenta regresiva
+  const x = setInterval(function () {
+    const distance = fechaEvento - new Date().getTime();
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("countdown-timer").innerHTML = "<span class='glowing-icon' style='font-size:1.5rem;text-align:center;width:100%'>¡HOY ES EL GRAN DÍA!</span>";
+      return;
+    }
+    const pad = n => n < 10 ? "0" + n : n;
+    document.getElementById("dias").textContent = pad(Math.floor(distance / 86400000));
+    document.getElementById("horas").textContent = pad(Math.floor((distance % 86400000) / 3600000));
+    document.getElementById("minutos").textContent = pad(Math.floor((distance % 3600000) / 60000));
+    document.getElementById("segundos").textContent = pad(Math.floor((distance % 60000) / 1000));
+  }, 1000);
+});
+
+/* ===== RSVP ===== */
+function sendRSVP(tel, nombreDestino) {
+  const p = new URLSearchParams(window.location.search);
+  const nombresStr = p.get('nombres'), invitado = p.get('invitado');
+  let mensaje = "";
+
+  if (nombresStr) {
+    const nombres = nombresStr.split(',');
+    const conf = [], decl = [];
+    let todos = true;
+    nombres.forEach((n, i) => {
+      const o = document.querySelector(`input[name="asistencia_${i}"]:checked`);
+      if (!o) todos = false; else if (o.value === 'Sí') conf.push(n.trim()); else decl.push(n.trim());
+    });
+    if (!todos) { alert("Por favor, selecciona si asiste o no cada persona de la lista."); return; }
+    mensaje = `¡Hola! Somos *${invitado || 'la familia'}* y aquí está nuestra confirmación de asistencia:\n\n`;
+    if (conf.length) mensaje += `✅ *Asistirán:*\n- ${conf.join('\n- ')}\n\n`;
+    if (decl.length) mensaje += `❌ *No podrán asistir:*\n- ${decl.join('\n- ')}\n\n`;
+  } else {
+    const nombre = document.getElementById('rsvpNombre').value.trim();
+    const apellido = document.getElementById('rsvpApellido').value.trim();
+    const asistencia = document.getElementById('rsvpAsistencia').value;
+    if (!nombre || !apellido || !asistencia) { alert("Por favor, completa tu nombre, apellido y estado de asistencia."); return; }
+    mensaje = `Hola ${nombreDestino}, soy *${nombre} ${apellido}*.\n\nQuiero confirmar mi respuesta a su boda: *${asistencia}*\n\n`;
+  }
+  window.open(`https://wa.me/${tel}?text=${encodeURIComponent(mensaje)}`, '_blank');
+}
+
+/* ===== Buenos deseos ===== */
+function sendWishes(tel, nombreDestino) {
+  const w = document.getElementById('wishesText').value.trim();
+  if (!w) { alert("Por favor, escribe un mensaje primero."); return; }
+  const mensaje = `¡Hola ${nombreDestino}! Te escribo para dejarles mis mejores deseos para su boda:\n\n"${w}"`;
+  window.open(`https://wa.me/${tel}?text=${encodeURIComponent(mensaje)}`, '_blank');
+}
+
+/* ===== Agregar al calendario (.ics) — 14:00 hora Veracruz (UTC-6) = 20:00Z ===== */
+function downloadICS() {
+  const cal = `BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Boda Luis y Claudia//ES\nBEGIN:VEVENT\nDTSTART:20261220T200000Z\nDTEND:20261221T040000Z\nSUMMARY:Boda de Luis Armando y Claudia\nLOCATION:Parroquia Santos Apóstoles Pedro y Andrés, Antón Lizardo, Ver.\nDESCRIPTION:Evento religioso 2:00 PM. Ceremonia civil y recepción 4:00 PM en Delta Hotels by Marriott.\nEND:VEVENT\nEND:VCALENDAR`;
+  const url = URL.createObjectURL(new Blob([cal], { type: 'text/calendar;charset=utf-8' }));
+  const a = document.createElement('a');
+  a.href = url; a.download = 'Boda_Luis_y_Claudia.ics';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+</script>
+</body>
+</html>
