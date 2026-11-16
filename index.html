@@ -114,6 +114,33 @@ h1,h2,h3{font-family:var(--font-title);font-weight:400}
 .radio-container{display:flex;gap:20px}
 .radio-label{display:flex;align-items:center;gap:5px;cursor:pointer;font-size:.95rem;font-weight:500}
 .dark-block{background:var(--dark-green);color:var(--cream);width:100%;padding:50px 20px;margin-top:50px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.15)}
+
+/* Fecha límite junto a "¿Asistirás?" */
+.label-deadline{display:inline-block;font-weight:400;font-size:.72rem;letter-spacing:.5px;color:var(--gold);font-style:italic;margin-left:6px;text-transform:none}
+
+/* Aviso solo adultos */
+.adults-note{margin-top:45px;font-family:var(--font-sans);font-size:.78rem;letter-spacing:1px;line-height:1.7;color:var(--olive-green);font-style:italic;padding:0 15px}
+.adults-note i{display:block;color:var(--gold);font-size:.9rem;margin-bottom:8px;font-style:normal}
+
+/* ===== PASE NUMERADO INVYTIA ===== */
+.pass-ticket{position:relative;width:100%;max-width:340px;margin:0 auto 35px;background:linear-gradient(160deg,#2B3A42 0%,#34474F 55%,#2B3A42 100%);background-image:url('https://www.transparenttextures.com/patterns/stardust.png'),linear-gradient(160deg,#2B3A42 0%,#34474F 55%,#2B3A42 100%);color:var(--cream);border-radius:18px;padding:34px 22px 30px;text-align:center;box-shadow:0 18px 40px rgba(43,58,66,.35),0 0 0 1px rgba(176,141,87,.5);overflow:hidden}
+.pass-ticket::before{content:'';position:absolute;inset:9px;border:1px solid rgba(176,141,87,.65);border-radius:12px;pointer-events:none}
+.pass-ticket::after{content:'';position:absolute;inset:14px;border:1px dashed rgba(176,141,87,.25);border-radius:9px;pointer-events:none}
+.pass-notch{position:absolute;top:62%;width:26px;height:26px;border-radius:50%;background:#efe9de;z-index:2;box-shadow:inset 0 0 6px rgba(0,0,0,.25)}
+.pass-notch.l{left:-13px}.pass-notch.r{right:-13px}
+.pass-perf{position:absolute;top:calc(62% + 12px);left:22px;right:22px;border-top:2px dotted rgba(176,141,87,.45)}
+.pass-corner{position:absolute;color:var(--gold);font-size:.7rem;opacity:.85}
+.pass-corner.tl{top:20px;left:22px}.pass-corner.tr{top:20px;right:22px}
+.pass-label{font-family:var(--font-sans);font-size:.7rem;letter-spacing:4px;color:var(--gold);font-weight:600;text-transform:uppercase}
+.pass-monogram{font-family:var(--font-script);font-size:2rem;color:var(--gold);margin:4px 0 10px;line-height:1}
+.pass-guest{font-family:var(--font-title);font-size:1.35rem;margin-bottom:12px;color:var(--cream);font-style:italic}
+.pass-intro{font-family:var(--font-sans);font-size:.78rem;letter-spacing:3px;text-transform:uppercase;color:rgba(248,244,236,.85)}
+.pass-count{display:flex;align-items:baseline;justify-content:center;gap:10px;margin:6px 0 2px;line-height:1}
+.pass-count .num{font-family:var(--font-script);font-size:5.2rem;background:linear-gradient(90deg,#B08D57 0%,#F3E3C3 50%,#B08D57 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmerText 4s linear infinite;padding:0 6px}
+.pass-count .word{font-family:var(--font-script);font-size:3rem;color:var(--cream)}
+.pass-foot{font-family:var(--font-sans);font-size:.78rem;letter-spacing:3px;text-transform:uppercase;color:rgba(248,244,236,.85);margin-top:4px}
+.pass-bottom{margin-top:38px;font-family:var(--font-sans);font-size:.65rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase}
+.pass-bottom span{display:block;font-family:var(--font-title);font-size:.95rem;letter-spacing:2px;color:var(--cream);margin-top:4px;text-transform:none;font-style:italic}
 @media(max-width:992px){.invitation-container{grid-template-columns:1fr;border-radius:0;box-shadow:none}.col-dark{padding:60px 20px}}
 </style>
 </head>
@@ -204,11 +231,27 @@ h1,h2,h3{font-family:var(--font-title);font-weight:400}
     <div class="timeline-section">
       <div class="timeline-item fade-in">
         <div class="timeline-icon"><i class="fa-solid fa-church"></i></div>
-        <div class="timeline-content"><div class="timeline-time">2:00 PM</div><div class="timeline-event">Evento Religioso</div></div>
+        <div class="timeline-content"><div class="timeline-time">14:00 hrs</div><div class="timeline-event">Evento Religioso</div></div>
       </div>
       <div class="timeline-item fade-in">
         <div class="timeline-icon"><i class="fa-solid fa-file-signature"></i></div>
-        <div class="timeline-content"><div class="timeline-time">4:00 PM</div><div class="timeline-event">Ceremonia Civil</div></div>
+        <div class="timeline-content"><div class="timeline-time">16:00 hrs</div><div class="timeline-event">Ceremonia Civil</div></div>
+      </div>
+      <div class="timeline-item fade-in">
+        <div class="timeline-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+        <div class="timeline-content"><div class="timeline-time">17:00 hrs</div><div class="timeline-event">Recepción en Salón</div></div>
+      </div>
+      <div class="timeline-item fade-in">
+        <div class="timeline-icon"><i class="fa-solid fa-utensils"></i></div>
+        <div class="timeline-content"><div class="timeline-time">18:00 hrs</div><div class="timeline-event">Cena</div></div>
+      </div>
+      <div class="timeline-item fade-in">
+        <div class="timeline-icon"><i class="fa-solid fa-music"></i></div>
+        <div class="timeline-content"><div class="timeline-time">19:30 hrs</div><div class="timeline-event">Vals</div></div>
+      </div>
+      <div class="timeline-item fade-in">
+        <div class="timeline-icon"><i class="fa-solid fa-moon"></i></div>
+        <div class="timeline-content"><div class="timeline-time">23:00 hrs</div><div class="timeline-event">Despedida</div></div>
       </div>
     </div>
 
@@ -248,7 +291,7 @@ h1,h2,h3{font-family:var(--font-title);font-weight:400}
     <div class="divider fade-in"><i class="fa-solid fa-map-location-dot glowing-icon" style="font-size:.9rem"></i></div>
 
     <!-- CEREMONIA RELIGIOSA -->
-    <p class="label-sm fade-in">Evento Religioso · 2:00 PM</p>
+    <p class="label-sm fade-in">Evento Religioso · 14:00 hrs</p>
     <div class="venue-name fade-in scale-in">Parroquia Santos Apóstoles<br>Pedro y Andrés</div>
     <p class="venue-sub fade-in">Independencia núm. 11, Antón Lizardo,<br>95263 Antón Lizardo, Ver.</p>
     <div class="map-container fade-in">
@@ -259,7 +302,7 @@ h1,h2,h3{font-family:var(--font-title);font-weight:400}
     <div class="divider fade-in" style="margin-top:45px"><i class="fa-solid fa-ring glowing-icon" style="font-size:.9rem"></i></div>
 
     <!-- CIVIL + RECEPCIÓN -->
-    <p class="label-sm fade-in">Ceremonia Civil y Recepción · 4:00 PM</p>
+    <p class="label-sm fade-in">Ceremonia Civil y Recepción · 16:00 hrs</p>
     <div class="venue-name fade-in scale-in">Delta Hotels<br>by Marriott</div>
     <p class="venue-sub fade-in">Riviera Veracruz, Carretera Federal Boca del Río–Antón Lizardo 1055,<br>95253 Buena Vista, Ver.</p>
     <div class="map-container fade-in">
@@ -271,21 +314,27 @@ h1,h2,h3{font-family:var(--font-title);font-weight:400}
     <div class="fade-in" style="width:100%;margin-top:60px">
       <h2 class="sec-title" style="font-size:2.2rem">ASISTENCIA</h2>
       <div class="divider"><i class="fa-solid fa-envelope-open-text glowing-icon" style="font-size:.8rem"></i></div>
-      <p id="deadline" style="display:none;font-family:var(--font-sans);font-size:.85rem;letter-spacing:1px;color:var(--dark-green);margin-bottom:5px"></p>
+      <!-- PASE NUMERADO INVYTIA: se muestra con ?p=n (opcional &invitado=Familia Pérez) -->
+      <div id="paseSection" class="pass-ticket scale-in" style="display:none">
+        <i class="fa-solid fa-star pass-corner tl"></i><i class="fa-solid fa-star pass-corner tr"></i>
+        <p class="pass-label">Pase de Entrada</p>
+        <div class="pass-monogram">L &amp; C</div>
+        <p id="guestNameDisplay" class="pass-guest" style="display:none"></p>
+        <p class="pass-intro">Hemos designado</p>
+        <div class="pass-count"><span class="num" id="guestPassesDisplay">2</span><span class="word" id="guestPassesWord">pases</span></div>
+        <p class="pass-foot">para ti</p>
+        <span class="pass-notch l"></span><span class="pass-notch r"></span>
+        <div class="pass-perf"></div>
+        <div class="pass-bottom">20 · Diciembre · 2026<span>Luis Armando &amp; Claudia</span></div>
+      </div>
 
       <div class="glass-panel scale-in">
-        <div id="paseSection" style="display:none;text-align:center;margin-bottom:30px;border-bottom:1px solid rgba(176,141,87,.3);padding-bottom:25px">
-          <p style="font-family:var(--font-sans);font-size:.85rem;letter-spacing:3px;color:var(--olive-green);margin-bottom:5px;font-weight:700">PASE DE ENTRADA</p>
-          <h2 id="guestNameDisplay" style="font-size:2.2rem;margin:10px 0;color:var(--dark-green)">Invitado Especial</h2>
-          <p style="font-size:1.15rem">Lugares reservados: <span id="guestPassesDisplay" style="font-weight:bold;color:var(--gold);font-size:1.6rem">2</span></p>
-        </div>
-
         <form id="rsvpForm">
           <div id="genericRSVPInputs">
             <div class="form-group"><label>Nombre(s):</label><input type="text" id="rsvpNombre" placeholder="Ej. Juan"></div>
             <div class="form-group"><label>Apellido(s):</label><input type="text" id="rsvpApellido" placeholder="Ej. Pérez"></div>
             <div class="form-group">
-              <label>¿Asistirás?:</label>
+              <label>¿Asistirás?: <span class="label-deadline deadline-txt"></span></label>
               <select id="rsvpAsistencia">
                 <option value="">Selecciona una opción</option>
                 <option value="¡Sí, ahí estaré!">¡Sí, ahí estaré!</option>
@@ -316,7 +365,9 @@ h1,h2,h3{font-family:var(--font-title);font-weight:400}
       </div>
     </div>
 
-    <div class="dark-block fade-in scale-in" style="text-align:center">
+    <p class="adults-note fade-in"><i class="fa-solid fa-heart"></i>Aunque amamos a los más pequeños, nuestra celebración será exclusivamente para adultos.</p>
+
+    <div class="dark-block fade-in scale-in" style="text-align:center;margin-top:30px">
       <h3 class="shimmer-text" style="font-family:var(--font-script);font-size:4.5rem;margin-bottom:15px;background-image:linear-gradient(90deg,var(--gold) 0%,#fff 30%,var(--cream) 50%,#fff 70%,var(--gold) 100%)">¡Gracias!</h3>
       <p style="font-size:1.15rem;margin-bottom:30px;font-style:italic">Tu presencia hará de este día un momento inolvidable.</p>
       <div style="font-family:var(--font-sans);letter-spacing:4px;font-size:.95rem;text-transform:uppercase;color:var(--gold);font-weight:600">Luis Armando &amp; Claudia</div>
@@ -330,7 +381,7 @@ h1,h2,h3{font-family:var(--font-title);font-weight:400}
 /* ===== CONFIGURACIÓN (editar aquí) ===== */
 const telNovio = "522291161580";               // WhatsApp del novio (Luis)
 const telNovia = "522291192117";               // WhatsApp de la novia (Claudia)
-const fechaLimite = "";                        // PENDIENTE: ej. "20 de noviembre de 2026" (vacío = se oculta)
+const fechaLimite = "30 de noviembre";         // Fecha límite de confirmación (vacío = se oculta)
 const fechaEvento = new Date("Dec 20, 2026 14:00:00").getTime();
 
 // Ubicaciones (sustituir por el link exacto de Google Maps cuando lo tengamos)
@@ -382,12 +433,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('link-' + k).href = linksMaps[k] || `https://www.google.com/maps/search/?api=1&query=${q}`;
   });
 
-  // Fecha límite
-  if (fechaLimite) {
-    const dl = document.getElementById('deadline');
-    dl.textContent = "Por favor confirma tu asistencia antes del " + fechaLimite;
-    dl.style.display = 'block';
-  }
+  // Fecha límite (junto a "¿Asistirás?")
+  const deadlineTxt = fechaLimite ? `(Fecha límite para la confirmación: ${fechaLimite})` : '';
 
   // Animaciones de aparición
   const observer = new IntersectionObserver(entries => {
@@ -395,19 +442,24 @@ document.addEventListener("DOMContentLoaded", function () {
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in, .divider, .scale-in').forEach(el => observer.observe(el));
 
-  // Invitados dinámicos por URL: ?invitado=Familia Pérez&pases=3&nombres=Juan,Ana,Luis
+  // PASES NUMERADOS INVYTIA: ?p=3  (opcional: &invitado=Familia Pérez&nombres=Juan,Ana,Luis)
   const p = new URLSearchParams(window.location.search);
-  const invitado = p.get('invitado'), pases = p.get('pases'), nombresStr = p.get('nombres');
+  const invitado = p.get('invitado'), nombresStr = p.get('nombres');
+  const pases = getPases();
 
-  if (invitado && pases) {
+  if (pases) {
     document.getElementById('paseSection').style.display = 'block';
-    document.getElementById('guestNameDisplay').textContent = invitado;
     document.getElementById('guestPassesDisplay').textContent = pases;
+    document.getElementById('guestPassesWord').textContent = pases === 1 ? 'pase' : 'pases';
+    if (invitado) {
+      const g = document.getElementById('guestNameDisplay');
+      g.textContent = invitado; g.style.display = 'block';
+    }
   }
 
   if (nombresStr) {
     const nombres = nombresStr.split(',');
-    let html = `<label style="font-family:var(--font-sans);font-size:.95rem;color:var(--dark-green);margin-bottom:15px;display:block;font-weight:600">Selecciona quiénes asisten:</label>`;
+    let html = `<label style="font-family:var(--font-sans);font-size:.95rem;color:var(--dark-green);margin-bottom:15px;display:block;font-weight:600">¿Asistirán? Selecciona quiénes asisten: <span class="label-deadline deadline-txt"></span></label>`;
     nombres.forEach((nombre, i) => {
       html += `<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:15px;padding-bottom:15px;border-bottom:1px solid rgba(176,141,87,.3)">
         <span style="font-size:1.05rem;font-weight:500;flex:1;min-width:120px">${nombre.trim()}</span>
@@ -419,6 +471,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('dynamicGuestList').innerHTML = html;
     document.getElementById('genericRSVPInputs').style.display = 'none';
   }
+
+  document.querySelectorAll('.deadline-txt').forEach(el => { el.textContent = deadlineTxt; });
 
   // Cuenta regresiva
   const x = setInterval(function () {
@@ -436,10 +490,19 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 1000);
 });
 
+/* ===== Pases: lee ?p=n (también acepta ?pases=n) ===== */
+function getPases() {
+  const p = new URLSearchParams(window.location.search);
+  const n = parseInt(p.get('p') || p.get('pases'), 10);
+  return n > 0 && n < 100 ? n : null;
+}
+
 /* ===== RSVP ===== */
 function sendRSVP(tel, nombreDestino) {
   const p = new URLSearchParams(window.location.search);
   const nombresStr = p.get('nombres'), invitado = p.get('invitado');
+  const pases = getPases();
+  const lineaPases = pases ? `🎟️ *Pases asignados:* ${pases}\n\n` : '';
   let mensaje = "";
 
   if (nombresStr) {
@@ -461,6 +524,7 @@ function sendRSVP(tel, nombreDestino) {
     if (!nombre || !apellido || !asistencia) { alert("Por favor, completa tu nombre, apellido y estado de asistencia."); return; }
     mensaje = `Hola ${nombreDestino}, soy *${nombre} ${apellido}*.\n\nQuiero confirmar mi respuesta a su boda: *${asistencia}*\n\n`;
   }
+  mensaje += lineaPases;
   window.open(`https://wa.me/${tel}?text=${encodeURIComponent(mensaje)}`, '_blank');
 }
 
@@ -474,7 +538,7 @@ function sendWishes(tel, nombreDestino) {
 
 /* ===== Agregar al calendario (.ics) — 14:00 hora Veracruz (UTC-6) = 20:00Z ===== */
 function downloadICS() {
-  const cal = `BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Boda Luis y Claudia//ES\nBEGIN:VEVENT\nDTSTART:20261220T200000Z\nDTEND:20261221T040000Z\nSUMMARY:Boda de Luis Armando y Claudia\nLOCATION:Parroquia Santos Apóstoles Pedro y Andrés, Antón Lizardo, Ver.\nDESCRIPTION:Evento religioso 2:00 PM. Ceremonia civil y recepción 4:00 PM en Delta Hotels by Marriott.\nEND:VEVENT\nEND:VCALENDAR`;
+  const cal = `BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//Boda Luis y Claudia//ES\nBEGIN:VEVENT\nDTSTART:20261220T200000Z\nDTEND:20261221T050000Z\nSUMMARY:Boda de Luis Armando y Claudia\nLOCATION:Parroquia Santos Apóstoles Pedro y Andrés, Antón Lizardo, Ver.\nDESCRIPTION:Evento religioso 14:00 hrs. Ceremonia civil 16:00 hrs, recepción 17:00, cena 18:00, vals 19:30 y despedida 23:00 en Delta Hotels by Marriott.\nEND:VEVENT\nEND:VCALENDAR`;
   const url = URL.createObjectURL(new Blob([cal], { type: 'text/calendar;charset=utf-8' }));
   const a = document.createElement('a');
   a.href = url; a.download = 'Boda_Luis_y_Claudia.ics';
